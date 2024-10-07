@@ -1,7 +1,5 @@
 using System;
 using UnityEngine;
-using TMPro;
-using System.Threading.Tasks;
 
 namespace Practice {
 

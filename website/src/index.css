@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* when adding tailwind I >change langauge mode , tailwind css, 
+and saved in >open user settings to use *.css tailswindcss*/
+@layer components {
+
+    .active-tabs {
+        @apply bg-white;
+        border-bottom: 1px solid transparent;
+    }
+
+    .button {
+        @apply border-none
+    }
+    .content-tabs {
+        @apply flex-grow
+    }
+
+    .content {
+        @apply bg-white p-[20x] w-[100%] h-[100%] hidden
+    }
+    
+    .content h2 {
+        @apply p-0 pb-[5px]
+    }
+
+    .content p {
+        @apply w-[100%] h-[100%]
+    }
+
+    .active-content {
+        @apply block
+    }
+}

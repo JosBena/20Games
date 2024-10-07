@@ -1,6 +1,5 @@
+using Cysharp.Threading.Tasks;
 using System;
-using System.Threading;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +21,7 @@ namespace Practice {
 
 		[Header("Audio")]
 		[SerializeField] private AudioPlayer _audioPlayer;
-		private float score;
+		private float score = 0;
 
 		private SpriteRenderer _spriteRender;
 
@@ -57,24 +56,17 @@ namespace Practice {
 		private async void GameOver() {
 			await AnimateDeath();
 			PauseAndStart(GameState.GameOver);
-
-			if (highscoreScore < score) _persistentData.Save(this);
+			if (highscoreScore <= score) _persistentData.Save(this);
 		}
 
-		private async Task AnimateDeath() {
-			try {
-				if (destroyCancellationToken.IsCancellationRequested) return;
-				_animatorManager.PlayAnimatorAnimation(AnimList.playerAnim, AnimList.playerDeadAnim, 0.25f);
-				_audioPlayer.Play(Helper.deathSoundName);
-				Time.timeScale = 0f;
-				await _animatorManager.FadeOutSpriteRender(_spriteRender, fadeoutMicroSeconds * 10);
-				await Task.Delay(800);
-			} catch (ArgumentException e) {
-				print(e);
-			}
+		private async UniTask AnimateDeath() {
+			_animatorManager.PlayAnimatorAnimation(AnimList.playerAnim, AnimList.playerDeadAnim, 0.25f);
+			_audioPlayer.Play(Helper.deathSoundName);
+			Time.timeScale = 0f;
+			await _animatorManager.FadeOutSpriteRender(_spriteRender, fadeoutMicroSeconds * 10);
+			//print("b");
+			await UniTask.Delay(200, true);
 		}
-
-		public void Quit() => Application.Quit();
 
 		public void Restart() {
 			score = 0;
@@ -94,6 +86,8 @@ namespace Practice {
 			PauseAndStart(pauseState);
 			if (inLobby) inLobby = false;
 		}
+
+		public void Quit() => Application.Quit();
 
 		public void IncreaseScore() {
 			scoreText.text = $"{++score}";
