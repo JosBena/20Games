@@ -76,5 +76,3 @@ crashlytics-build.properties
 # just in case
 
 #ignore everything under Assets except the _Project folder
-Assets/*
-!Assets/_Project*

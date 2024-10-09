@@ -1,4 +1,0 @@
-[Alias]
-    st = status -sb
-    undo-commit = reset --soft HEAD^
-    
