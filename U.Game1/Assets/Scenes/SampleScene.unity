@@ -3216,18 +3216,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1653199479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccac16abd06012c4895f3198e6ae1e03, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c32fa9157726ca40906dfeee8984d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpStrength: 5
   _sprite:
-  - {fileID: 21300000, guid: 4b4a57de377138e4e8369d8145550062, type: 3}
-  - {fileID: 21300000, guid: 47a1c54c1427e10458e1e21315a00666, type: 3}
-  - {fileID: 21300000, guid: 477a76ff29832b2499b9244de7070326, type: 3}
-  - {fileID: 21300000, guid: ad15cbccda6c71342a9234c8e4e0176d, type: 3}
+  - {fileID: -1128524465, guid: 1eade5b69f6a45943a058d0cca92076f, type: 3}
+  - {fileID: -543647756, guid: 1eade5b69f6a45943a058d0cca92076f, type: 3}
+  - {fileID: -285567778, guid: 1eade5b69f6a45943a058d0cca92076f, type: 3}
+  - {fileID: -1727065143, guid: 1eade5b69f6a45943a058d0cca92076f, type: 3}
   _animManageer: {fileID: 2131489757}
+  _animator: {fileID: 1653199486}
   _gameManager: {fileID: 792583911}
   _rotationSPeed: 10
+  jumpDuration: 0
+  jumpCoolDown: 0
 --- !u!95 &1653199486
 Animator:
   serializedVersion: 5

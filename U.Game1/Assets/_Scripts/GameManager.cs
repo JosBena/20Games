@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace Practice {
 
 	public class GameManager : PersistentData {
-		[SerializeField] private Player player;
+		[SerializeField] private PlayerController player;
 
 		[Header("Animator")]
 		[SerializeField] private AnimatorManager _animatorManager;
