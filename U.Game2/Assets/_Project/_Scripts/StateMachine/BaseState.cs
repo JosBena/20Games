@@ -8,6 +8,7 @@ namespace Statemachine {
 		//Animation list here
 		protected static readonly int RunningHash = Animator.StringToHash("runningAnim");
 		protected static readonly int FlyingHash = Animator.StringToHash("flyingAnim");
+		protected static readonly int DroppingHash = Animator.StringToHash("droppingAnim");
 
 		protected const float crossFadeDuration = 0.1f;
 

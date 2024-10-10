@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] Animator animator;
 	StateMachine stateMachine;
 	bool isGrounded;
+	public bool isFlying { private set; get; }
 	private void Awake() {
 		rb= GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
 		var flyingState = new FlyingState(this, animator);
 
 		At(runningState, flyingState, new FuncPredicate(() => !isGrounded));
+
 		At(flyingState, runningState, new FuncPredicate(() => isGrounded));
 
 		stateMachine.SetState(runningState);
@@ -33,10 +35,16 @@ public class PlayerController : MonoBehaviour
 		stateMachine.FixedUpdate();
 	}
 
-	public void HandleFlying() {
+	public bool HandleFlying() {
 		if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) {
 			rb.AddForce(Vector3.up * jumpStrength, ForceMode2D.Impulse);
+			isFlying = true;
 		}
+		else {
+			isFlying = false;
+		}
+		return isFlying;
+
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision) {
