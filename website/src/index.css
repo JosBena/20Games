@@ -4,7 +4,7 @@
 /* when adding tailwind I >change langauge mode , tailwind css, 
 and saved in >open user settings to use *.css tailswindcss*/
 @layer components {
-
+    /*
     .active-tabs {
         @apply bg-white;
         border-bottom: 1px solid transparent;
@@ -32,4 +32,18 @@ and saved in >open user settings to use *.css tailswindcss*/
     .active-content {
         @apply block
     }
+    */
+    .tabs {
+        @apply flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400
+    }
+    .tabs li{
+        @apply me-2
+    }
+    .tabsActive a{
+        @apply me-2 inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg dark:bg-gray-800 dark:text-blue-500
+    }
+    .tabsHover a{
+        @apply inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300
+    }
+    
 }

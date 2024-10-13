@@ -13,6 +13,8 @@ namespace Statemachine {
 			animator.CrossFade(FlyingHash, crossFadeDuration);
 		}
 
+
+
 		public override void Update() {
 			
 			isDropping = !player.HandleFlying();

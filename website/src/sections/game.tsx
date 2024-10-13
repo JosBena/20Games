@@ -4,7 +4,7 @@ import {Unity, useUnityContext} from "react-unity-webgl";
 const Game = () => {
     let here = "20Games/Builds/Games/Build/";
     let remote = "Builds/Games/Build/2"
-    const path = remote;
+    const path = here;
     
     const { unityProvider } = useUnityContext({
         loaderUrl: path + "Games.loader.js",
